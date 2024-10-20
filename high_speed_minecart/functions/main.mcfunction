@@ -1,0 +1,2 @@
+#execute as @e[type=high_speed_minecart:minecart] at @s unless entity @e[type=minecraft:minecart,x=~,y=~2.8,z=~] run summon minecraft:minecart ~ ~2.8 ~
+#execute as @e[type=high_speed_minecart:minecart] at @s run ride @e[type=minecraft:minecart,x=~,y=~2.8,z=~] start_riding @s teleport_rider

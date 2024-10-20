@@ -1,0 +1,26 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "汚ぇ花火",
+		"description": "汚ぇ花火を作ります。",
+		"uuid": "af35b311-b0f8-4b13-99ad-b642f7841a64",
+		"version": [0, 0, 5],
+		"min_engine_version": [1, 21, 2]
+	},
+	"modules": [
+		{
+			"description": "Script resources",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "c6d698e2-4f1f-46a0-ab36-91c4fe50b77e",
+			"version": [0, 0, 5],
+			"entry": "scripts/main.js"
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.12.0-beta"
+		}
+	]
+}

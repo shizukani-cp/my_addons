@@ -1,0 +1,26 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "World editもどき",
+		"description": "できることがWorld editに似てるだけのアドオンです。",
+		"uuid": "5c1110f0-8249-4b79-a5b0-9b80df932384",
+		"version": [0, 0, 11],
+		"min_engine_version": [1, 21, 2]
+	},
+	"modules": [
+		{
+			"description": "Script resources",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "8b08658b-7ce3-4324-92c0-b3911aa57925",
+			"version": [0, 0, 11],
+			"entry": "scripts/main.js"
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.15.0-beta"
+		}
+	]
+}

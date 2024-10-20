@@ -1,0 +1,26 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "high speed minecart",
+		"description": "Minecart is high speed!",
+		"uuid": "2c20e06d-e7cf-45d3-9d9e-9b152cf07ddc",
+		"version": [0, 0, 12],
+		"min_engine_version": [1, 21, 22]
+	},
+	"modules": [
+		{
+			"description": "Script resources",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "d15c8a77-9434-459c-a864-df5bf5818bf0",
+			"version": [0, 0, 12],
+			"entry": "scripts/main.js"
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.13.0"
+		}
+	]
+}

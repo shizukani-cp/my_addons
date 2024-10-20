@@ -1,0 +1,26 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "speed",
+		"description": "speed",
+		"uuid": "617cc8e4-c342-4325-8ca8-20acba2f6b2b",
+		"version": [0, 0, 2],
+		"min_engine_version": [1, 21, 31]
+	},
+	"modules": [
+		{
+			"description": "Script resources",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "da9bf896-2828-4173-8d09-79ffef0a5dfa",
+			"version": [0, 0, 2],
+			"entry": "scripts/main.js"
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.14.0"
+		}
+	]
+}

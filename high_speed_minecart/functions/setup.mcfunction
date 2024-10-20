@@ -1,0 +1,1 @@
+scoreboard objectives add minecart_id dummy
