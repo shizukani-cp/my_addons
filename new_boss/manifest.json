@@ -1,0 +1,26 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "New boss",
+		"description": "Add a new boss!",
+		"uuid": "750d6d01-a972-4470-bea3-15f598c8d2df",
+		"version": [0, 0, 4],
+		"min_engine_version": [1, 21, 41]
+	},
+	"modules": [
+		{
+			"description": "Script resources",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "4dfa7a07-4cfe-4c33-862d-ef15315574ce",
+			"version": [0, 0, 4],
+			"entry": "scripts/main.js"
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.15.0"
+		}
+	]
+}
