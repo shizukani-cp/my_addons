@@ -1,0 +1,26 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "my kit3",
+		"description": "my kitにいろいろ追加したものです。",
+		"uuid": "231ebd42-5c11-4364-8f8c-e4f4579b3d08",
+		"version": [3, 0, 0],
+		"min_engine_version": [1, 21, 62]
+	},
+	"modules": [
+		{
+			"description": "Script resources",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "fccc0ae8-a7b5-46d7-9590-c2f4e9012fce",
+			"version": [3, 0, 0],
+			"entry": "scripts/main.js"
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.18.0-beta"
+		}
+	]
+}

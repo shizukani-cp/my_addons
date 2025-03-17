@@ -1,0 +1,63 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "mykit:explode",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+
+    "component_groups": {
+      "crystal_exploding": {
+        "minecraft:explode": {
+          "breaks_blocks": false,
+          "damage_scaling": 0.0,
+          "fuse_length": 0,
+          "fuse_lit": true,
+          "knockback_scaling": 3.0,
+          "power": 0,
+          "causes_fire": false,
+          "destroy_affected_by_griefing": true
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:collision_box": {
+        "width": 1,
+        "height": 1
+      },
+      "minecraft:health": {
+        "value": 1,
+        "max": 1
+      },
+      "minecraft:fire_immune": true,
+      "minecraft:on_hurt": {
+        "event": "minecraft:crystal_explode",
+        "target": "self"
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "minecraft:crystal_explode": {
+        "remove": {
+        },
+        "add": {
+          "component_groups": [
+            "crystal_exploding"
+          ]
+        }
+      }
+    }
+  }
+}
+
