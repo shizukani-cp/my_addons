@@ -1,0 +1,26 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "chunk",
+		"description": "チャンクごとにいろいろしてくれる奴",
+		"uuid": "33941b39-5d3c-4fb6-b9f4-587ef7effeb1",
+		"version": [0, 0, 4],
+		"min_engine_version": [1, 21, 51]
+	},
+	"modules": [
+		{
+			"description": "Script resources",
+			"language": "javascript",
+			"type": "script",
+			"uuid": "eae448e6-cf05-4d12-98dd-5786b8a5ecba",
+			"version": [0, 0, 4],
+			"entry": "scripts/main.js"
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.16.0"
+		}
+	]
+}
