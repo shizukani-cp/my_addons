@@ -64,7 +64,18 @@
         },
         "minecraft:rideable": {
           "seat_count": 1,
-          "family_types": ["player"]
+          "family_types": ["player"],
+	  "seats": [
+	    {
+	      "min_rider_count": 0,
+	      "max_rider_count": 1,
+	      "position": [
+		0,
+		1.805,
+		0
+	      ]
+	    }
+	  ]
         }
       },
       "minecraft:pillager_arrow": {
@@ -92,7 +103,13 @@
           "should_bounce": true,
           "offset": [ 0, -0.1, 0 ]
         }
+      },
+      "my_kit:hook": {
+       "minecraft:collision_box": {
+        "width": 0,
+        "height": 0
       }
+     }
     },
 
     "components": {
@@ -180,6 +197,11 @@
             }
           }
         ]
+      },
+      "my_kit:arrow_fook": {
+        "add": {
+          "component_groups": ["my_kit:hook"]
+        }
       }
     }
   }
