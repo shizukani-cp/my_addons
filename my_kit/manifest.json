@@ -5,7 +5,7 @@
 		"description": "my kitにいろいろ追加したものです。",
 		"uuid": "231ebd42-5c11-4364-8f8c-e4f4579b3d08",
 		"version": [3, 0, 0],
-		"min_engine_version": [1, 21, 62]
+		"min_engine_version": [1, 21, 71]
 	},
 	"modules": [
 		{
@@ -20,7 +20,7 @@
 	"dependencies": [
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.18.0-beta"
+			"version": "2.0.0-beta"
 		}
 	]
 }

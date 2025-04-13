@@ -19,7 +19,9 @@ world.beforeEvents.playerBreakBlock.subscribe(e => {
     if (item.typeId === "minecraft:wooden_axe" && item.getDynamicProperty("pointer")) {
         e.cancel = true;
         const b = e.block;
-        p.runCommandAsync(`setblock ${b.x} ${b.y} ${b.z} ${b.typeId}`);
+	system.run(() => {
+            p.runCommandAsync(`setblock ${b.x} ${b.y} ${b.z} ${b.typeId}`);
+	});
         stack.push([e.dimension, b.x, b.y, b.z]);
     }
 });
@@ -30,12 +32,16 @@ world.beforeEvents.chatSend.subscribe(e => {
         e.cancel = true;
         if (command.slice(0, 4) === "!set") {
             const l = stack.pop();
-            l[0].runCommandAsync(`setblock ${l[1]} ${l[2]} ${l[3]} ${command.slice(5)}`);
+	    system.run(() => {
+                l[0].runCommand(`setblock ${l[1]} ${l[2]} ${l[3]} ${command.slice(5)}`);
+	    });
         } else if (command.slice(0, 5) === "!fill") {
             const l1 = stack.pop();
             const l2 = stack.pop();
             if (l1[0].id === l2[0].id) {
-                l1[0].runCommandAsync(`fill ${l1[1]} ${l1[2]} ${l1[3]} ${l2[1]} ${l2[2]} ${l2[3]} ${command.slice(6)}`);
+		system.run(() => {
+                    l1[0].runCommand(`fill ${l1[1]} ${l1[2]} ${l1[3]} ${l2[1]} ${l2[2]} ${l2[3]} ${command.slice(6)}`);
+		});
             } else {
                 sendError(`Thailand cannot fill a dimension.`);
             }
@@ -49,7 +55,9 @@ world.beforeEvents.chatSend.subscribe(e => {
                 const destX = l1[1] + (maxX - minX);
                 const destY = l1[2];
                 const destZ = l1[3] + (maxX - minX);
-                l1[0].runCommandAsync(`clone ${minX} ${minY} ${minZ} ${maxX} ${maxY} ${maxZ} ${destX} ${destY} ${destZ}`);
+		system.run(() => {
+                    l1[0].runCommand(`clone ${minX} ${minY} ${minZ} ${maxX} ${maxY} ${maxZ} ${destX} ${destY} ${destZ}`);
+	        });
             } else {
                 sendError(`Thailand cannot clone a dimension.`);
             }
@@ -116,9 +124,11 @@ world.beforeEvents.chatSend.subscribe(e => {
                     break;
             }
         } else if (command.slice(0, 4) === "!tnt") {
-            for (let i=0; i < parseInt(command.slice(5)); i++) {
-                e.sender.runCommandAsync(`execute at ${e.sender.name} run summon tnt`);
-            }
+	    system.run(() => {
+                for (let i=0; i < parseInt(command.slice(5)); i++) {
+                    e.sender.runCommand(`execute at ${e.sender.name} run summon tnt`);
+                }
+	    });
         } else {
             sendError(`invaild command:${command}`);
         }
@@ -128,7 +138,7 @@ world.beforeEvents.chatSend.subscribe(e => {
 world.beforeEvents.itemUse.subscribe((e) => {
     if (e.itemStack.typeId === "minecraft:splash_potion" && e.itemStack.getDynamicProperty("mode")) {
         e.cancel = true;
-        const nowMode = e.source.getGameMode()
+        const nowMode = e.source.getGameMode();
         let index = modes.indexOf(nowMode);
         if (e.source.isSneaking) { index--; } else { index++; }
         system.run(() => {
@@ -141,7 +151,10 @@ world.afterEvents.itemStopUse.subscribe((e) => {
     const {source, itemStack} = e;
     if (!itemStack) { return; }
     if (itemStack.typeId === "minecraft:bow" && itemStack.getDynamicProperty("hookshot")) {
-        source.runCommandAsync(`execute as @s at @s anchored eyes run ride @s start_riding @e[type=arrow,c=1]`)
+	system.run(() => {
+  	    source.runCommand(`execute as @s at @s anchored eyes run event entity @e[type=arrow,c=1] my_kit:hook`);
+            source.runCommand(`execute as @s at @s anchored eyes run ride @s start_riding @e[type=arrow,c=1]`);
+        });
     }
 });
 
@@ -150,8 +163,10 @@ system.runInterval(() => {
         if (!player.isSneaking) continue;
         const item = player.getComponent("inventory").container.getItem(player.selectedSlotIndex);
         if (item && item.typeId === "minecraft:spyglass" && item.getDynamicProperty("gun")) {
-            player.runCommandAsync(`execute as ${player.name} at @s anchored eyes run function ref/gun`);
-            player.runCommandAsync(`camerashake add ${player.name} 0.5 0.05`);
+	    system.run(() => {
+                player.runCommand(`execute as ${player.name} at @s anchored eyes run function ref/gun`);
+                player.runCommand(`camerashake add ${player.name} 0.5 0.05`);
+	    });
         }
     }
 }, 1);
