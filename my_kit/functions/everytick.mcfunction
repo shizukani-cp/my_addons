@@ -1,4 +1,3 @@
-function items/enderchestcraft
 function items/jetpack
 function items/use_teleport
 function items/drill
