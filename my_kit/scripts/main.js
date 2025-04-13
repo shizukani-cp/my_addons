@@ -99,10 +99,10 @@ world.beforeEvents.chatSend.subscribe(e => {
                         container.addItem(item);
                     });
                     break;
-                case "hookshot":
+                case "odm_gear":
                     system.run(() => {
                         const item = new ItemStack("bow");
-                        item.setDynamicProperty("hookshot", true);
+                        item.setDynamicProperty("odm_gear", true);
                         item.nameTag = "フックショット";
                         container.addItem(item);
                     });
@@ -150,7 +150,7 @@ world.beforeEvents.itemUse.subscribe((e) => {
 world.afterEvents.itemStopUse.subscribe((e) => {
     const {source, itemStack} = e;
     if (!itemStack) { return; }
-    if (itemStack.typeId === "minecraft:bow" && itemStack.getDynamicProperty("hookshot")) {
+    if (itemStack.typeId === "minecraft:bow" && itemStack.getDynamicProperty("odm_gear")) {
 	system.run(() => {
   	    source.runCommand(`execute as @s at @s anchored eyes run event entity @e[type=arrow,c=1] my_kit:hook`);
             source.runCommand(`execute as @s at @s anchored eyes run ride @s start_riding @e[type=arrow,c=1]`);
